@@ -1,0 +1,25 @@
+﻿
+<h3>Lista de productos</h3>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Nombre</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+        <td>Estado</td>
+        <td>Sub-total</td>
+        <td>Editar</td>
+    </tr>
+    @foreach (var producto in ViewBag.productos)
+    {
+        <tr>
+            <td>@producto.Id</td>
+            <td>@producto.Nombre</td>
+            <td>@producto.Precio</td>
+            <td>@producto.Cantidad</td>
+            <td>@producto.Estado</td>
+            <td>@(producto.Precio * producto.Cantidad)</td>
+            <td><a href="@Url.Action("Editar","Home", new { id = producto.Id})">Editar</a></td>
+        </tr>
+    }
+</table>
